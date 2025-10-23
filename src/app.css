@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+
+/* -------------------------------------------------------------
+   Base Typography Overrides
+   ------------------------------------------------------------- */
+@layer base {
+	html{
+		font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+	}
+
+	button {
+	    cursor: pointer;
+	}
+}
+
+
+/* -------------------------------------------------------------
+   tailwind css text utilities Typography Overrides
+   ------------------------------------------------------------- */
+@layer utilities {
+	:root {
+		/* base size (桌機) */
+		--font-xs: 0.75rem;   /* 12px */
+		--font-sm: 0.875rem;  /* 14px */
+		--font-base: 1rem;    /* 16px */
+		--font-lg: 1.125rem;   /* 18px */
+		--font-xl: 1.25rem;    /* 20px */
+	}
+
+    /* 平板以下字體 (md) 放大 1.4 倍 */
+	@media (max-width: 1280px) and (hover: none) and (pointer: coarse) {
+		:root {
+            --font-xs: calc(0.75rem * 1.4);
+            --font-sm: calc(0.875rem * 1.4);
+            --font-base: calc(1rem * 1.4);  
+            --font-lg: calc(1.125rem * 1.4);  
+            --font-xl: calc(1.25rem * 1.4);   
+		}
+	}
+
+	/* Tailwind 字體 class 對應覆蓋 */
+	.text-xs { font-size: var(--font-xs); }
+	.text-sm { font-size: var(--font-sm); }
+	.text-base { font-size: var(--font-base); }
+	.text-lg { font-size: var(--font-lg); }
+	.text-xl { font-size: var(--font-xl); }
+}
